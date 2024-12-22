@@ -81,3 +81,26 @@ export const removeTask: RequestHandler = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateTask: RequestHandler = async (req, res, next) => {
+  // your code here
+  const { id } = req.params;
+  const{ _id, title, description, isChecked, dateCreated } = req.body;
+  try {
+    // your code here
+    const errors = validationResult(req);
+    validationErrorParser(errors);
+
+    if(id !== _id){
+      return res.status(400).json({ message: "ID mismatch between URL and body"});
+    }
+
+    const updatedTask = await TaskModel.findByIdAndUpdate(id, {title, description, isChecked, dateCreated}, { new: true});
+    if(!updatedTask){
+      return res.status(404).json({ message: "Task not found"});
+    }
+    res.status(200).json(updatedTask);
+  } catch (error) {
+    next(error);
+  }
+};
