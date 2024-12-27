@@ -1,14 +1,14 @@
 .listTitle {
-    font: var(--font-heading);
+  font: var(--font-heading);
 }
 
-.listContainer { 
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
 }
-  
+
 .outer {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
