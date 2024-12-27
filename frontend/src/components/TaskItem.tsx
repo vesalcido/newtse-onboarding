@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { updateTask } from "src/api/tasks"; // Import updateTask function
 import { CheckButton } from "src/components";
-import { updateTask } from "src/api/tasks";  // Import updateTask function
 import styles from "src/components/TaskItem.module.css";
 
 import type { Task } from "src/api/tasks";
@@ -16,7 +16,7 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
 
   // Handle check/uncheck toggle
   const handleToggleCheck = async () => {
-    setLoading(true);  // Disable button while waiting for the update
+    setLoading(true); // Disable button while waiting for the update
 
     const updatedTask = { ...task, isChecked: !task.isChecked };
 
@@ -35,7 +35,7 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
       // Handle errors (e.g., network issues)
       alert("Error occurred while updating the task.");
     } finally {
-      setLoading(false);  // Re-enable the button
+      setLoading(false); // Re-enable the button
     }
   };
 
@@ -49,11 +49,7 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
   return (
     <div className={styles.item}>
       {/* Pass onPress and disabled props to CheckButton */}
-      <CheckButton 
-        checked={task.isChecked} 
-        onPress={handleToggleCheck} 
-        disabled={isLoading} 
-      />
+      <CheckButton checked={task.isChecked} onPress={handleToggleCheck} disabled={isLoading} />
 
       <div className={textContainerClass}>
         <span className={styles.title}>{task.title}</span>
