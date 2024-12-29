@@ -8,7 +8,7 @@ import cors from "cors";
 import { isHttpError } from "http-errors";
 import taskRoutes from "src/routes/task";
 import tasksRoutes from "src/routes/tasks";
-
+import userRoutes from "./routes/user";
 const app = express();
 
 // initializes Express to accept JSON in the request/response body
@@ -58,3 +58,5 @@ app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
 });
 
 export default app;
+
+app.use(userRoutes);
