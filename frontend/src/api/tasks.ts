@@ -1,8 +1,8 @@
 import { get, handleAPIError, post, put } from "src/api/requests";
+import { User } from "src/api/users";
 
 import type { APIResult } from "src/api/requests";
 
-import { User } from "src/api/users";
 /**
  * Defines the "shape" of a Task object (what fields are present and their types) for
  * frontend components to use. This will be the return type of most functions in this

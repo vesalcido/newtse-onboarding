@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { updateTask } from "src/api/tasks"; // Import updateTask function
 import { CheckButton } from "src/components";
 import styles from "src/components/TaskItem.module.css";
@@ -18,7 +19,11 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
   const handleToggleCheck = async () => {
     setLoading(true); // Disable button while waiting for the update
 
-    const updatedTask = { ...task, isChecked: !task.isChecked };
+    const updatedTask = {
+      ...task,
+      isChecked: !task.isChecked,
+      assignee: task.assignee ? task.assignee._id : undefined,
+    };
 
     try {
       // Update the task in the backend
@@ -52,7 +57,9 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
       <CheckButton checked={task.isChecked} onPress={handleToggleCheck} disabled={isLoading} />
 
       <div className={textContainerClass}>
-        <span className={styles.title}>{task.title}</span>
+        <Link to={`/task/${task._id}`} className={styles.titleLink}>
+          <span className={styles.title}>{task.title}</span>
+        </Link>
         {task.description && <span className={styles.description}>{task.description}</span>}
       </div>
     </div>
