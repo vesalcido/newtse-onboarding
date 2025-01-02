@@ -24,12 +24,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.title {
+
+.titleLink {
   font: var(--font-label);
+  text-decoration: none;
 }
-.checked {
-  color: var(--color-text-secondary);
+
+.titleLink:hover {
+  text-decoration: underline; /* Add underline on hover */
 }
+
 .description {
   font: var(--font-body);
+}
+
+.checked {
+  color: var(--color-text-secondary);
 }

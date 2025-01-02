@@ -1,0 +1,60 @@
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.taskHeader h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.editButton {
+  background-color: #debb01;
+  color: #102a43;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.taskDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.statusRow {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin-bottom: 16px;
+  gap: 24px;
+}
+
+.assigneeRow {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin-bottom: 16px;
+  gap: 24px;
+}
+
+.dateRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.dateRow strong {
+  white-space: nowrap;
+}
